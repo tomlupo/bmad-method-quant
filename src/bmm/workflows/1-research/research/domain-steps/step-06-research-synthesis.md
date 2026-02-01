@@ -75,6 +75,30 @@ Produce a comprehensive, authoritative research document on **{{research_topic}}
 **Web Search for Introduction Context:**
 Search the web: "{{research_topic}} significance importance"
 
+### 2b. arXiv Academic Enrichment for Synthesis
+
+**Load the arXiv enrichment protocol from: `{project-root}/_bmad/bmm/workflows/1-research/research/arxiv-enrichment.md`**
+
+Before final synthesis, search arXiv for foundational academic papers that strengthen the domain research with empirical and theoretical depth:
+
+**Construct 2 targeted arXiv API queries:**
+
+Query 1 - Domain-specific academic research:
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:q-fin.GN+OR+cat:q-fin.ST+OR+cat:econ.EM%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+Query 2 - Cross-disciplinary methods:
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:stat.ML+OR+cat:cs.LG+OR+cat:cs.AI%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+**Rate Limiting**: Wait at least 3 seconds between API calls.
+
+**From results, select 5-8 most relevant papers** across both queries. These will be incorporated into the final document as an "Academic Research Foundations" section (section 9 in the document, before Appendices). Follow the enrichment protocol's citation format.
+
+**Anti-Hallucination**: ONLY cite papers from actual arXiv API results. If no relevant papers found, note this in the document.
+
 ### 3. Synthesize All Research Sections
 
 **Section-by-Section Integration:**
@@ -82,6 +106,7 @@ Search the web: "{{research_topic}} significance importance"
 - Combine industry analysis from step-02
 - Integrate regulatory focus from step-03
 - Incorporate technical trends from step-04
+- Integrate relevant arXiv academic papers from enrichment step above
 - Add cross-sectional insights and connections
 - Ensure comprehensive coverage with no gaps
 

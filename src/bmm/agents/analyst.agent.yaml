@@ -37,6 +37,11 @@ agent:
       data: "{project-root}/_bmad/bmm/workflows/1-research/arxiv-search/arxiv-api-reference.md"
       description: "[AX] arXiv Search: Systematic literature search using the arXiv API for academic papers on quant finance, ML, statistics, and related topics"
 
+    - trigger: AA or fuzzy match on arxiv-auto
+      exec: "{project-root}/_bmad/bmm/workflows/1-research/arxiv-search/autonomous-workflow.md"
+      data: "{project-root}/_bmad/bmm/workflows/1-research/arxiv-search/arxiv-api-reference.md"
+      description: "[AA] arXiv Auto: Fully autonomous literature search - discovers topic from project context and produces complete literature review without user interaction"
+
     - trigger: DP or fuzzy match on document-project
       workflow: "{project-root}/_bmad/bmm/workflows/document-project/workflow.yaml"
       description: "[DP] Document Project: Analyze an existing project to produce useful documentation for both human and LLM"
