@@ -87,6 +87,34 @@ Search the web: "{{research_topic}} future outlook trends"
 - Innovation pipelines and R&D trends
 - Long-term industry transformation
 
+### 4b. arXiv Academic Enrichment
+
+**Load the arXiv enrichment protocol from: `{project-root}/_bmad/bmm/workflows/1-research/research/arxiv-enrichment.md`**
+
+Search arXiv for academic papers on emerging technologies and technical innovations relevant to **{{research_topic}}**:
+
+**Construct 1-2 targeted arXiv API queries:**
+
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:cs.LG+OR+cat:cs.AI+OR+cat:stat.ML+OR+cat:q-fin.CP%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+**Rate Limiting**: Wait at least 3 seconds between API calls.
+
+**From results, select 3-5 most relevant papers** focused on emerging methods, algorithms, or computational approaches. Integrate an "Academic Research Foundations" subsection within the Technical Trends content:
+
+```markdown
+### Academic Research Foundations
+
+Recent academic research provides additional depth on technical trends:
+
+**[Paper Title]** ([Year]) - [Authors]
+_[1-2 sentence summary of methodology or innovation]_
+_arXiv: [ID] | [Category] | [Abstract Link]_
+```
+
+**Anti-Hallucination**: ONLY cite papers from actual arXiv API results. If no relevant papers found, skip this subsection.
+
 ### 5. Generate Technical Trends Content
 
 **WRITE IMMEDIATELY TO DOCUMENT**

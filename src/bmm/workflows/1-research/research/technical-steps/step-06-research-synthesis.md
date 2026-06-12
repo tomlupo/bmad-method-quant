@@ -77,6 +77,30 @@ Produce a comprehensive, authoritative technical research document on **{{resear
 **Web Search for Technical Introduction Context:**
 Search the web: "{{research_topic}} technical significance importance"
 
+### 2b. arXiv Academic Enrichment for Synthesis
+
+**Load the arXiv enrichment protocol from: `{project-root}/_bmad/bmm/workflows/1-research/research/arxiv-enrichment.md`**
+
+Before final synthesis, search arXiv for academic papers that strengthen the technical research with state-of-the-art methods and empirical results:
+
+**Construct 2 targeted arXiv API queries:**
+
+Query 1 - Technical methods and implementations:
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:cs.CE+OR+cat:cs.SE+OR+cat:cs.DC+OR+cat:q-fin.CP%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+Query 2 - Algorithms and computational approaches:
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:cs.LG+OR+cat:stat.ML+OR+cat:math.OC%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+**Rate Limiting**: Wait at least 3 seconds between API calls.
+
+**From results, select 5-8 most relevant papers** across both queries. These will be incorporated into the "Research Papers and Publications" subsection in section 12 (Technical Appendices) and referenced throughout the synthesis where they strengthen specific technical findings. Follow the enrichment protocol's citation format.
+
+**Anti-Hallucination**: ONLY cite papers from actual arXiv API results. If no relevant papers found, note this in the document.
+
 ### 3. Synthesize All Technical Research Sections
 
 **Technical Section-by-Section Integration:**
@@ -84,6 +108,7 @@ Search the web: "{{research_topic}} technical significance importance"
 - Combine technical overview from step-02
 - Integrate architectural patterns from step-03
 - Incorporate implementation research from step-04
+- Integrate relevant arXiv academic papers from enrichment step above
 - Add cross-technical insights and connections
 - Ensure comprehensive technical coverage with no gaps
 

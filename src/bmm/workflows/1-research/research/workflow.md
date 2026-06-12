@@ -139,6 +139,9 @@ After understanding the research topic and goals, identify the most appropriate 
 3. **Technical Research** - Technology evaluation, architecture decisions, implementation approaches
    _Best for: Technical feasibility, technology selection, implementation strategies_
 
+4. **arXiv Literature Search** - Systematic academic paper search using the arXiv API across quantitative finance, machine learning, statistics, and econometrics categories
+   _Best for: Literature reviews, methodology discovery, finding academic foundations for strategies, understanding state-of-the-art approaches_
+
 **Recommendation**: Based on [topic] and [goals], I recommend [suggested research type] because [specific rationale].
 
 **What type of research would work best for your needs?**
@@ -167,6 +170,16 @@ After understanding the research topic and goals, identify the most appropriate 
 - Set `research_topic = [discovered topic from discussion]`
 - Create the starter output file: `{planning_artifacts}/research/technical-{{research_topic}}-research-{{date}}.md` with exact copy of the ./research.template.md contents
 - Load: `./technical-steps/step-01-init.md` with topic context
+
+#### If arXiv Literature Search:
+
+- **Route to the dedicated arXiv search workflow** which has its own specialized step files and API reference
+- Set `search_topic = [discovered topic from discussion]`
+- Set `search_goals = [captured goals from discussion]`
+- Set `target_categories = [identified arXiv categories based on topic]`
+- Set `search_keywords = [refined keyword list]`
+- Load: `{project-root}/_bmad/bmm/workflows/1-research/arxiv-search/workflow.md` and continue from the "Route to Step-Based Workflow" section, passing the discovered topic and goals
+- The arXiv workflow has its own template, API reference, and 4-step process (scope, search, analysis, synthesis)
 
 **Important**: The discovered topic from the collaborative discussion should be passed to the research initialization steps, so they don't need to ask "What do you want to research?" again - they can focus on refining the scope for their specific research type.
 

@@ -75,6 +75,32 @@ Search the web: "market research risk assessment frameworks"
 - Regulatory and compliance risks
 - Economic and market volatility considerations
 
+### 3b. arXiv Academic Enrichment (Optional)
+
+**Load the arXiv enrichment protocol from: `{project-root}/_bmad/bmm/workflows/1-research/research/arxiv-enrichment.md`**
+
+If the research topic has quantitative, financial, or data-driven dimensions, search arXiv for relevant academic papers that strengthen the market research with empirical foundations:
+
+**Construct 1-2 targeted arXiv API queries:**
+
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:q-fin.PM+OR+cat:q-fin.ST+OR+cat:q-fin.GN+OR+cat:econ.EM%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+**Rate Limiting**: Wait at least 3 seconds between API calls.
+
+**From results, select 3-5 most relevant papers** and integrate an "Academic Research Foundations" subsection within the Strategic Market Recommendations section of the final document. Follow the enrichment protocol's citation format:
+
+```markdown
+### Academic Research Foundations
+
+**[Paper Title]** ([Year]) - [Authors]
+_[1-2 sentence summary of relevance to market research]_
+_arXiv: [ID] | [Category] | [Abstract Link]_
+```
+
+**Anti-Hallucination**: ONLY cite papers that appear in actual arXiv API results. If no relevant papers found, skip this subsection and note "No directly relevant academic papers found on arXiv."
+
 ### 4. Generate Complete Market Research Document
 
 Prepare comprehensive market research document with full structure:
@@ -292,7 +318,19 @@ _Innovation Opportunities: [Areas for market innovation and differentiation]_
 _Strategic Market Investments: [Recommended market investments and priorities]_
 _Source: [URL]_
 
-## 10. Market Research Methodology and Source Verification
+## 10. Academic Research Foundations
+
+### Relevant Academic Literature from arXiv
+
+[If arXiv enrichment was performed in step 3b, include the relevant academic papers here]
+
+**[Paper Title]** ([Year]) - [Authors]
+_[1-2 sentence summary of relevance to market research findings]_
+_arXiv: [ID] | [Category] | [Abstract Link]_
+
+_Academic sources from arXiv supplement web research and provide empirical and theoretical foundations for the market analysis above._
+
+## 11. Market Research Methodology and Source Verification
 
 ### Comprehensive Market Source Documentation
 

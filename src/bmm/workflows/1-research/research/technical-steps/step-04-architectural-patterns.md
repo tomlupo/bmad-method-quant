@@ -87,6 +87,34 @@ Search the web: "scalability architecture patterns"
 - Distributed systems and consensus patterns
 - Performance optimization techniques
 
+### 4b. arXiv Academic Enrichment
+
+**Load the arXiv enrichment protocol from: `{project-root}/_bmad/bmm/workflows/1-research/research/arxiv-enrichment.md`**
+
+Search arXiv for academic papers on architectural patterns, system design, and computational approaches relevant to **{{research_topic}}**:
+
+**Construct 1-2 targeted arXiv API queries:**
+
+```
+http://export.arxiv.org/api/query?search_query=all:{{research_topic}}+AND+%28cat:cs.CE+OR+cat:cs.DC+OR+cat:q-fin.CP+OR+cat:cs.SE%29&sortBy=submittedDate&sortOrder=descending&max_results=10
+```
+
+**Rate Limiting**: Wait at least 3 seconds between API calls.
+
+**From results, select 3-5 most relevant papers** focused on system architecture, computational methods, or distributed systems. Integrate an "Academic Research Foundations" subsection within the Architectural Patterns content:
+
+```markdown
+### Academic Research Foundations
+
+Recent academic research on architectural and computational approaches:
+
+**[Paper Title]** ([Year]) - [Authors]
+_[1-2 sentence summary of architectural contribution]_
+_arXiv: [ID] | [Category] | [Abstract Link]_
+```
+
+**Anti-Hallucination**: ONLY cite papers from actual arXiv API results. If no relevant papers found, skip this subsection.
+
 ### 5. Generate Architectural Patterns Content
 
 Prepare architectural analysis with web search citations:
